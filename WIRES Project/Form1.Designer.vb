@@ -42,7 +42,7 @@ Partial Class LoginForm
         Me.MaterialDivider1.Location = New System.Drawing.Point(-1, 226)
         Me.MaterialDivider1.MouseState = MaterialSkin.MouseState.HOVER
         Me.MaterialDivider1.Name = "MaterialDivider1"
-        Me.MaterialDivider1.Size = New System.Drawing.Size(578, 296)
+        Me.MaterialDivider1.Size = New System.Drawing.Size(584, 299)
         Me.MaterialDivider1.TabIndex = 6
         Me.MaterialDivider1.Text = "MaterialDivider1"
         '
