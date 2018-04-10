@@ -146,6 +146,7 @@ Partial Class LoginForm
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.MaterialDivider1)
         Me.Controls.Add(Me.Label1)
+        Me.MaximizeBox = False
         Me.Name = "LoginForm"
         CType(Me.pic_user, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel1.ResumeLayout(False)
