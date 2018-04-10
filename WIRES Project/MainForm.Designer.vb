@@ -23,10 +23,11 @@ Partial Class MainForm
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(MainForm))
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.TabControl = New MaterialSkin.Controls.MaterialTabControl()
         Me.StudentsTab = New System.Windows.Forms.TabPage()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.MaterialLabel1 = New MaterialSkin.Controls.MaterialLabel()
+        Me.lblName = New MaterialSkin.Controls.MaterialLabel()
         Me.pic_user = New System.Windows.Forms.PictureBox()
         Me.MaterialDivider1 = New MaterialSkin.Controls.MaterialDivider()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
@@ -37,8 +38,18 @@ Partial Class MainForm
         Me.MaterialLabel2 = New MaterialSkin.Controls.MaterialLabel()
         Me.DataGridView4 = New System.Windows.Forms.DataGridView()
         Me.MaterialLabel3 = New MaterialSkin.Controls.MaterialLabel()
+        Me.lblMajor = New MaterialSkin.Controls.MaterialLabel()
+        Me.lblGradDate = New MaterialSkin.Controls.MaterialLabel()
+        Me.lblMinor = New MaterialSkin.Controls.MaterialLabel()
+        Me.MaterialLabel1 = New MaterialSkin.Controls.MaterialLabel()
         Me.MaterialLabel4 = New MaterialSkin.Controls.MaterialLabel()
         Me.MaterialLabel5 = New MaterialSkin.Controls.MaterialLabel()
+        Me.MaterialDivider2 = New MaterialSkin.Controls.MaterialDivider()
+        Me.MaterialLabel6 = New MaterialSkin.Controls.MaterialLabel()
+        Me.FirstName = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Last_Name = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Major = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Grad_Date = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.TabControl.SuspendLayout()
         Me.StudentsTab.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
@@ -76,13 +87,19 @@ Partial Class MainForm
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.MaterialLabel6)
+        Me.GroupBox1.Controls.Add(Me.MaterialDivider2)
         Me.GroupBox1.Controls.Add(Me.MaterialLabel5)
         Me.GroupBox1.Controls.Add(Me.MaterialLabel4)
+        Me.GroupBox1.Controls.Add(Me.MaterialLabel1)
+        Me.GroupBox1.Controls.Add(Me.lblMinor)
+        Me.GroupBox1.Controls.Add(Me.lblGradDate)
+        Me.GroupBox1.Controls.Add(Me.lblMajor)
         Me.GroupBox1.Controls.Add(Me.MaterialLabel3)
         Me.GroupBox1.Controls.Add(Me.DataGridView4)
         Me.GroupBox1.Controls.Add(Me.MaterialLabel2)
         Me.GroupBox1.Controls.Add(Me.DataGridView3)
-        Me.GroupBox1.Controls.Add(Me.MaterialLabel1)
+        Me.GroupBox1.Controls.Add(Me.lblName)
         Me.GroupBox1.Controls.Add(Me.pic_user)
         Me.GroupBox1.Controls.Add(Me.MaterialDivider1)
         Me.GroupBox1.Location = New System.Drawing.Point(459, 6)
@@ -91,19 +108,19 @@ Partial Class MainForm
         Me.GroupBox1.TabIndex = 1
         Me.GroupBox1.TabStop = False
         '
-        'MaterialLabel1
+        'lblName
         '
-        Me.MaterialLabel1.AutoSize = True
-        Me.MaterialLabel1.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Me.MaterialLabel1.Depth = 0
-        Me.MaterialLabel1.Font = New System.Drawing.Font("Roboto", 11.0!)
-        Me.MaterialLabel1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.MaterialLabel1.Location = New System.Drawing.Point(137, 28)
-        Me.MaterialLabel1.MouseState = MaterialSkin.MouseState.HOVER
-        Me.MaterialLabel1.Name = "MaterialLabel1"
-        Me.MaterialLabel1.Size = New System.Drawing.Size(104, 19)
-        Me.MaterialLabel1.TabIndex = 3
-        Me.MaterialLabel1.Text = "Student Name"
+        Me.lblName.AutoSize = True
+        Me.lblName.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.lblName.Depth = 0
+        Me.lblName.Font = New System.Drawing.Font("Roboto", 11.0!)
+        Me.lblName.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.lblName.Location = New System.Drawing.Point(121, 28)
+        Me.lblName.MouseState = MaterialSkin.MouseState.HOVER
+        Me.lblName.Name = "lblName"
+        Me.lblName.Size = New System.Drawing.Size(104, 19)
+        Me.lblName.TabIndex = 3
+        Me.lblName.Text = "Student Name"
         '
         'pic_user
         '
@@ -111,7 +128,7 @@ Partial Class MainForm
         Me.pic_user.Image = CType(resources.GetObject("pic_user.Image"), System.Drawing.Image)
         Me.pic_user.Location = New System.Drawing.Point(56, 28)
         Me.pic_user.Name = "pic_user"
-        Me.pic_user.Size = New System.Drawing.Size(59, 59)
+        Me.pic_user.Size = New System.Drawing.Size(59, 57)
         Me.pic_user.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.pic_user.TabIndex = 2
         Me.pic_user.TabStop = False
@@ -123,13 +140,24 @@ Partial Class MainForm
         Me.MaterialDivider1.Location = New System.Drawing.Point(33, 19)
         Me.MaterialDivider1.MouseState = MaterialSkin.MouseState.HOVER
         Me.MaterialDivider1.Name = "MaterialDivider1"
-        Me.MaterialDivider1.Size = New System.Drawing.Size(654, 163)
+        Me.MaterialDivider1.Size = New System.Drawing.Size(654, 159)
         Me.MaterialDivider1.TabIndex = 4
         Me.MaterialDivider1.Text = "MaterialDivider1"
         '
         'DataGridView1
         '
+        Me.DataGridView1.BackgroundColor = System.Drawing.Color.White
+        Me.DataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DataGridView1.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.FirstName, Me.Last_Name, Me.Major, Me.Grad_Date})
         Me.DataGridView1.Location = New System.Drawing.Point(9, 6)
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.Size = New System.Drawing.Size(444, 583)
@@ -169,7 +197,7 @@ Partial Class MainForm
         'DataGridView3
         '
         Me.DataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView3.Location = New System.Drawing.Point(33, 268)
+        Me.DataGridView3.Location = New System.Drawing.Point(33, 311)
         Me.DataGridView3.Name = "DataGridView3"
         Me.DataGridView3.Size = New System.Drawing.Size(654, 116)
         Me.DataGridView3.TabIndex = 5
@@ -181,7 +209,7 @@ Partial Class MainForm
         Me.MaterialLabel2.Depth = 0
         Me.MaterialLabel2.Font = New System.Drawing.Font("Roboto", 11.0!)
         Me.MaterialLabel2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.MaterialLabel2.Location = New System.Drawing.Point(29, 246)
+        Me.MaterialLabel2.Location = New System.Drawing.Point(25, 289)
         Me.MaterialLabel2.MouseState = MaterialSkin.MouseState.HOVER
         Me.MaterialLabel2.Name = "MaterialLabel2"
         Me.MaterialLabel2.Size = New System.Drawing.Size(54, 19)
@@ -191,9 +219,9 @@ Partial Class MainForm
         'DataGridView4
         '
         Me.DataGridView4.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView4.Location = New System.Drawing.Point(33, 421)
+        Me.DataGridView4.Location = New System.Drawing.Point(33, 455)
         Me.DataGridView4.Name = "DataGridView4"
-        Me.DataGridView4.Size = New System.Drawing.Size(654, 156)
+        Me.DataGridView4.Size = New System.Drawing.Size(654, 122)
         Me.DataGridView4.TabIndex = 7
         '
         'MaterialLabel3
@@ -203,12 +231,68 @@ Partial Class MainForm
         Me.MaterialLabel3.Depth = 0
         Me.MaterialLabel3.Font = New System.Drawing.Font("Roboto", 11.0!)
         Me.MaterialLabel3.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.MaterialLabel3.Location = New System.Drawing.Point(29, 399)
+        Me.MaterialLabel3.Location = New System.Drawing.Point(29, 433)
         Me.MaterialLabel3.MouseState = MaterialSkin.MouseState.HOVER
         Me.MaterialLabel3.Name = "MaterialLabel3"
         Me.MaterialLabel3.Size = New System.Drawing.Size(89, 19)
         Me.MaterialLabel3.TabIndex = 8
         Me.MaterialLabel3.Text = "Interactions"
+        '
+        'lblMajor
+        '
+        Me.lblMajor.AutoSize = True
+        Me.lblMajor.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.lblMajor.Depth = 0
+        Me.lblMajor.Font = New System.Drawing.Font("Roboto", 11.0!)
+        Me.lblMajor.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.lblMajor.Location = New System.Drawing.Point(52, 92)
+        Me.lblMajor.MouseState = MaterialSkin.MouseState.HOVER
+        Me.lblMajor.Name = "lblMajor"
+        Me.lblMajor.Size = New System.Drawing.Size(52, 19)
+        Me.lblMajor.TabIndex = 9
+        Me.lblMajor.Text = "Major:"
+        '
+        'lblGradDate
+        '
+        Me.lblGradDate.AutoSize = True
+        Me.lblGradDate.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.lblGradDate.Depth = 0
+        Me.lblGradDate.Font = New System.Drawing.Font("Roboto", 11.0!)
+        Me.lblGradDate.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.lblGradDate.Location = New System.Drawing.Point(52, 150)
+        Me.lblGradDate.MouseState = MaterialSkin.MouseState.HOVER
+        Me.lblGradDate.Name = "lblGradDate"
+        Me.lblGradDate.Size = New System.Drawing.Size(117, 19)
+        Me.lblGradDate.TabIndex = 10
+        Me.lblGradDate.Text = "GraduationDate:"
+        '
+        'lblMinor
+        '
+        Me.lblMinor.AutoSize = True
+        Me.lblMinor.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.lblMinor.Depth = 0
+        Me.lblMinor.Font = New System.Drawing.Font("Roboto", 11.0!)
+        Me.lblMinor.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.lblMinor.Location = New System.Drawing.Point(52, 121)
+        Me.lblMinor.MouseState = MaterialSkin.MouseState.HOVER
+        Me.lblMinor.Name = "lblMinor"
+        Me.lblMinor.Size = New System.Drawing.Size(52, 19)
+        Me.lblMinor.TabIndex = 11
+        Me.lblMinor.Text = "Minor:"
+        '
+        'MaterialLabel1
+        '
+        Me.MaterialLabel1.AutoSize = True
+        Me.MaterialLabel1.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.MaterialLabel1.Depth = 0
+        Me.MaterialLabel1.Font = New System.Drawing.Font("Roboto", 11.0!)
+        Me.MaterialLabel1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.MaterialLabel1.Location = New System.Drawing.Point(403, 92)
+        Me.MaterialLabel1.MouseState = MaterialSkin.MouseState.HOVER
+        Me.MaterialLabel1.Name = "MaterialLabel1"
+        Me.MaterialLabel1.Size = New System.Drawing.Size(51, 19)
+        Me.MaterialLabel1.TabIndex = 12
+        Me.MaterialLabel1.Text = "Email:"
         '
         'MaterialLabel4
         '
@@ -217,12 +301,12 @@ Partial Class MainForm
         Me.MaterialLabel4.Depth = 0
         Me.MaterialLabel4.Font = New System.Drawing.Font("Roboto", 11.0!)
         Me.MaterialLabel4.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.MaterialLabel4.Location = New System.Drawing.Point(52, 106)
+        Me.MaterialLabel4.Location = New System.Drawing.Point(403, 121)
         Me.MaterialLabel4.MouseState = MaterialSkin.MouseState.HOVER
         Me.MaterialLabel4.Name = "MaterialLabel4"
-        Me.MaterialLabel4.Size = New System.Drawing.Size(60, 19)
-        Me.MaterialLabel4.TabIndex = 9
-        Me.MaterialLabel4.Text = "Degree:"
+        Me.MaterialLabel4.Size = New System.Drawing.Size(55, 19)
+        Me.MaterialLabel4.TabIndex = 13
+        Me.MaterialLabel4.Text = "Phone:"
         '
         'MaterialLabel5
         '
@@ -231,12 +315,57 @@ Partial Class MainForm
         Me.MaterialLabel5.Depth = 0
         Me.MaterialLabel5.Font = New System.Drawing.Font("Roboto", 11.0!)
         Me.MaterialLabel5.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.MaterialLabel5.Location = New System.Drawing.Point(52, 137)
+        Me.MaterialLabel5.Location = New System.Drawing.Point(403, 150)
         Me.MaterialLabel5.MouseState = MaterialSkin.MouseState.HOVER
         Me.MaterialLabel5.Name = "MaterialLabel5"
-        Me.MaterialLabel5.Size = New System.Drawing.Size(117, 19)
-        Me.MaterialLabel5.TabIndex = 10
-        Me.MaterialLabel5.Text = "GraduationDate:"
+        Me.MaterialLabel5.Size = New System.Drawing.Size(80, 19)
+        Me.MaterialLabel5.TabIndex = 14
+        Me.MaterialLabel5.Text = "Interested:"
+        '
+        'MaterialDivider2
+        '
+        Me.MaterialDivider2.BackColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.MaterialDivider2.Depth = 0
+        Me.MaterialDivider2.Location = New System.Drawing.Point(33, 220)
+        Me.MaterialDivider2.MouseState = MaterialSkin.MouseState.HOVER
+        Me.MaterialDivider2.Name = "MaterialDivider2"
+        Me.MaterialDivider2.Size = New System.Drawing.Size(654, 66)
+        Me.MaterialDivider2.TabIndex = 15
+        Me.MaterialDivider2.Text = "MaterialDivider2"
+        '
+        'MaterialLabel6
+        '
+        Me.MaterialLabel6.AutoSize = True
+        Me.MaterialLabel6.BackColor = System.Drawing.Color.Transparent
+        Me.MaterialLabel6.Depth = 0
+        Me.MaterialLabel6.Font = New System.Drawing.Font("Roboto", 11.0!)
+        Me.MaterialLabel6.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.MaterialLabel6.Location = New System.Drawing.Point(29, 198)
+        Me.MaterialLabel6.MouseState = MaterialSkin.MouseState.HOVER
+        Me.MaterialLabel6.Name = "MaterialLabel6"
+        Me.MaterialLabel6.Size = New System.Drawing.Size(50, 19)
+        Me.MaterialLabel6.TabIndex = 16
+        Me.MaterialLabel6.Text = "Notes"
+        '
+        'FirstName
+        '
+        Me.FirstName.HeaderText = "First Name"
+        Me.FirstName.Name = "FirstName"
+        '
+        'Last_Name
+        '
+        Me.Last_Name.HeaderText = "Last Name"
+        Me.Last_Name.Name = "Last_Name"
+        '
+        'Major
+        '
+        Me.Major.HeaderText = "Major"
+        Me.Major.Name = "Major"
+        '
+        'Grad_Date
+        '
+        Me.Grad_Date.HeaderText = "Grad Date"
+        Me.Grad_Date.Name = "Grad_Date"
         '
         'MainForm
         '
@@ -268,15 +397,25 @@ Partial Class MainForm
     Friend WithEvents TabSelector1 As MaterialSkin.Controls.MaterialTabSelector
     Friend WithEvents GroupBox1 As GroupBox
     Friend WithEvents DataGridView1 As DataGridView
-    Friend WithEvents MaterialLabel1 As MaterialSkin.Controls.MaterialLabel
+    Friend WithEvents lblName As MaterialSkin.Controls.MaterialLabel
     Friend WithEvents pic_user As PictureBox
     Friend WithEvents MaterialDivider1 As MaterialSkin.Controls.MaterialDivider
     Friend WithEvents Events As TabPage
     Friend WithEvents DataGridView2 As DataGridView
     Friend WithEvents DataGridView3 As DataGridView
-    Friend WithEvents MaterialLabel5 As MaterialSkin.Controls.MaterialLabel
-    Friend WithEvents MaterialLabel4 As MaterialSkin.Controls.MaterialLabel
+    Friend WithEvents lblGradDate As MaterialSkin.Controls.MaterialLabel
+    Friend WithEvents lblMajor As MaterialSkin.Controls.MaterialLabel
     Friend WithEvents MaterialLabel3 As MaterialSkin.Controls.MaterialLabel
     Friend WithEvents DataGridView4 As DataGridView
     Friend WithEvents MaterialLabel2 As MaterialSkin.Controls.MaterialLabel
+    Friend WithEvents lblMinor As MaterialSkin.Controls.MaterialLabel
+    Friend WithEvents MaterialLabel4 As MaterialSkin.Controls.MaterialLabel
+    Friend WithEvents MaterialLabel1 As MaterialSkin.Controls.MaterialLabel
+    Friend WithEvents MaterialLabel5 As MaterialSkin.Controls.MaterialLabel
+    Friend WithEvents MaterialLabel6 As MaterialSkin.Controls.MaterialLabel
+    Friend WithEvents MaterialDivider2 As MaterialSkin.Controls.MaterialDivider
+    Friend WithEvents FirstName As DataGridViewTextBoxColumn
+    Friend WithEvents Last_Name As DataGridViewTextBoxColumn
+    Friend WithEvents Major As DataGridViewTextBoxColumn
+    Friend WithEvents Grad_Date As DataGridViewTextBoxColumn
 End Class
