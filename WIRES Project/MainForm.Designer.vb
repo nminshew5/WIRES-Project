@@ -234,9 +234,9 @@ Partial Class MainForm
         Me.MaterialLabel5.Location = New System.Drawing.Point(52, 137)
         Me.MaterialLabel5.MouseState = MaterialSkin.MouseState.HOVER
         Me.MaterialLabel5.Name = "MaterialLabel5"
-        Me.MaterialLabel5.Size = New System.Drawing.Size(86, 19)
+        Me.MaterialLabel5.Size = New System.Drawing.Size(117, 19)
         Me.MaterialLabel5.TabIndex = 10
-        Me.MaterialLabel5.Text = "Graduation:"
+        Me.MaterialLabel5.Text = "GraduationDate:"
         '
         'MainForm
         '
